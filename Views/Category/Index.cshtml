@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProductCategoryManagement1.Models.Category>
+
+@{
+    ViewBag.Title = "Category List";
+}
+
+<h2>Category List</h2>
+
+<a class="btn btn-primary" href="@Url.Action("Create")">Add New Category</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", new { id = item.CategoryId })">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", new { id = item.CategoryId })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
